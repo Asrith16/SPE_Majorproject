@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/kadavakolla/chatapp.git'
+                git branch: 'main', url: 'https://github.com/Asrith16/SPE_Project.git'
             }
         }
         stage('Build Frontend Image') {
@@ -46,7 +46,7 @@ pipeline {
                 }
             }
         }
-        stage('Ansible Deployment') {
+        stage('Docker Compose') {
             steps {
                 script {
                     sh 'ansible-playbook -i inventory-k8 playbook-k8.yml'

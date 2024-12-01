@@ -15,27 +15,22 @@ spec:
     spec:
       containers:
         - name: backend
-          image: chokshi/backend-image:latest
+          image: asrith1158/backend-image:latest
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 8080
           env:
-            - name: MONGO_URI
+            - name: MONGO_URL
               valueFrom:
                 secretKeyRef:
                   name: mern-backend-secret
-                  key: MONGO_URI
+                  key: MONGO_URL
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
                   name: mern-backend-secret
                   key: JWT_SECRET_KEY
-            - name: jwt_token
-              valueFrom:
-                secretKeyRef:
-                  name: mern-backend-secret
-                  key: jwt_token

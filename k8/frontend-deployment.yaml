@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: chokshi/frontend-image:latest
+          image: asrith1158/frontend-image:latest
           ports:
             - containerPort: 3000
 
