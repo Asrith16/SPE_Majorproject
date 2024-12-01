@@ -4,6 +4,9 @@ pipeline {
        FRONTEND_URL='http://localhost:3000'
        MONGODB_URI='mongodb+srv://asrithnune03:asrithrishi@discuss.lieci.mongodb.net/?retryWrites=true&w=majority&appName=DiscUss'
        JWT_SECRET_KEY='jhdcjhsdvchjsdhbfasdgbvs'
+       REACT_APP_CLOUDINARY_CLOUD_NAME = 'dd4osfetw'
+       REACT_APP_BACKEND_URL = 'http://localhost:8080'
+       PORT='8080'
     }
     stages {
         stage('Clone Git') {
