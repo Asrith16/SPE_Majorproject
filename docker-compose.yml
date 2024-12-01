@@ -1,0 +1,16 @@
+version: '3'
+services:
+  frontend:
+    image: asrith1158/frontend-image:latest
+    restart: always
+    ports:
+      - '3000:3000'
+  backend:
+    image: asrith1158/backend-image:latest
+    restart: always
+    ports:
+      - '3001:3001'
+    environment:
+      - FRONTEND_URL=http://localhost:3000
+      - MONGODB_URI=mongodb+srv://asrithnune03:asrithrishi@discuss.lieci.mongodb.net/?retryWrites=true&w=majority&appName=DiscUss
+      - JWT_SECRET_KEY='jhdcjhsdvchjsdhbfasdgbvs'
