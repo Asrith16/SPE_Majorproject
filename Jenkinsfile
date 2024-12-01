@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/Asrith16/SPE_Project.git'
+                git branch: 'main', url: 'https://github.com/Asrith16/SPE_Majorproject.git'
             }
         }
         stage('Build Frontend Image') {
