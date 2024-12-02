@@ -6,7 +6,7 @@ services:
       - "3000:3000"
     environment:
       REACT_APP_CLOUDINARY_CLOUD_NAME: dd4osfetw
-      REACT_APP_BACKEND_URL: http://backend:8080  # Use service name (backend) instead of localhost
+      REACT_APP_BACKEND_URL: http://localhost:8080  
     networks:
       - app-network
 

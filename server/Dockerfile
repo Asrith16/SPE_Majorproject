@@ -19,4 +19,4 @@ ENV NODE_OPTIONS=--max_old_space_size=1024
 EXPOSE 8080
 
 # Start the app in development mode
-CMD ["npm", "run", "dev"]  # or "start" if you want to run in production mode
+CMD ["npm", "run", "dev"] 
