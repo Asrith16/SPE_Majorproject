@@ -1,3 +1,4 @@
+version: '3'
 services:
   frontend:
     image: asrith1158/frontend-image:latest
@@ -5,8 +6,10 @@ services:
       - "3000:3000"
     environment:
       REACT_APP_CLOUDINARY_CLOUD_NAME: dd4osfetw
-      REACT_APP_BACKEND_URL: http://localhost:8080
+      REACT_APP_BACKEND_URL: http://backend:8080  # Use service name (backend) instead of localhost
       FRONTEND_URL: http://localhost:3000
+    networks:
+      - app-network
 
   backend:
     image: asrith1158/backend-image:latest
@@ -20,3 +23,9 @@ services:
       resources:
         limits:
           memory: 512M
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
