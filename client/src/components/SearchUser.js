@@ -11,9 +11,11 @@ const SearchUser = ({onClose}) => {
     const [loading,setLoading] = useState(false)
     const [search,setSearch] = useState("")
 
-
+    const backendUrl = window.location.hostname === 'localhost' ? 
+    'http://localhost:8080' : 
+    'http://192.168.49.2:30002';
     const handleSearchUser = async()=>{
-        const URL = `${process.env.REACT_APP_BACKEND_URL}/api/search-user`
+        const URL = `${backendUrl}/api/search-user`
         try {
             setLoading(true)
             const response = await axios.post(URL,{

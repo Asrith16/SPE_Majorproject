@@ -24,11 +24,11 @@ spec:
             - name: http
               containerPort: 8080
           env:
-            - name: MONGO_URI
+            - name: MONGODB_URI
               valueFrom:
                 secretKeyRef:
                   name: mern-backend-secret
-                  key: MONGO_URI
+                  key: MONGODB_URI
             - name: JWT_SECRET_KEY
               valueFrom:
                 secretKeyRef:

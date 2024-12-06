@@ -16,7 +16,7 @@ const Home = () => {
   console.log('user',user)
   const fetchUserDetails = async()=>{
     try {
-        const URL = `${process.env.REACT_APP_BACKEND_URL}/api/user-details`
+        const URL = `${backendUrl}/api/user-details`
         const response = await axios({
           url : URL,
           withCredentials : true
@@ -37,10 +37,13 @@ const Home = () => {
   useEffect(()=>{
     fetchUserDetails()
   },[])
+  const backendUrl = window.location.hostname === 'localhost' ? 
+    'http://localhost:8080' : 
+    'http://192.168.49.2:30002';
 
   /***socket connection */
   useEffect(()=>{
-    const socketConnection = io(process.env.REACT_APP_BACKEND_URL,{
+    const socketConnection = io(backendUrl,{
       auth : {
         token : localStorage.getItem('token')
       },

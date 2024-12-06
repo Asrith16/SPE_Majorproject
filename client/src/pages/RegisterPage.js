@@ -45,12 +45,15 @@ const RegisterPage = () => {
     e.preventDefault()
     setUploadPhoto(null)
   }
+  const backendUrl = window.location.hostname === 'localhost' ? 
+    'http://localhost:8080' : 
+    'http://192.168.49.2:30002';
 
   const handleSubmit = async(e)=>{
     e.preventDefault()
     e.stopPropagation()
 
-    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/register`
+    const URL = `${backendUrl}/api/register`
 
     try {
         const response = await axios.post(URL,data)

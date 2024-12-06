@@ -57,12 +57,15 @@ const EditUserDetails = ({onClose,user}) => {
         }
         })
     }
+    const backendUrl = window.location.hostname === 'localhost' ? 
+    'http://localhost:8080' : 
+    'http://192.168.49.2:30002';
 
     const handleSubmit = async(e)=>{
         e.preventDefault()
         e.stopPropagation()
         try {
-            const URL = `${process.env.REACT_APP_BACKEND_URL}/api/update-user`
+            const URL = `${backendUrl}/api/update-user`
 
             const response = await axios({
                 method : 'post',
