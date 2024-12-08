@@ -17,7 +17,7 @@ const frontendUrl = (typeof window !== 'undefined' && window.location.hostname =
 // }))
 // app.use(cors()); // This allows all origins
 const corsOptions = {
-    origin: frontendUrl, // Replace with your frontend URL
+    origin: 'http://localhost:3000', // Replace with your frontend URL
     credentials: true, // Allow cookies and credentials
 };
 
