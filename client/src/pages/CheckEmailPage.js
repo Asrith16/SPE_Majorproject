@@ -27,9 +27,10 @@ const CheckEmailPage = () => {
     e.preventDefault()
     e.stopPropagation()
 
-    const backendUrl = window.location.hostname === 'localhost' ? 
+    const backendUrl = (typeof window !== 'undefined' && window.location.hostname === 'localhost') ? 
     'http://localhost:8080' : 
     'http://192.168.49.2:30002';
+
 
     const URL = `${backendUrl}/api/email`
 
