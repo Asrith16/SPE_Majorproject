@@ -8,8 +8,8 @@ const { app, server } = require('./socket/index')
 
 // const app = express()
 const frontendUrl = (typeof window !== 'undefined' && window.location.hostname === 'localhost') ? 
-    'http://localhost:8080' : 
-    'http://192.168.49.2:30002';
+    'http://localhost:3000' : 
+    'http://192.168.49.2:30000';
 
 // app.use(cors({
 //     origin : frontendUrl,
@@ -17,7 +17,7 @@ const frontendUrl = (typeof window !== 'undefined' && window.location.hostname =
 // }))
 // app.use(cors()); // This allows all origins
 const corsOptions = {
-    origin: 'http://192.168.49.2:30000', // Replace with your frontend URL
+    origin: frontendUrl, // Replace with your frontend URL
     credentials: true, // Allow cookies and credentials
 };
 
