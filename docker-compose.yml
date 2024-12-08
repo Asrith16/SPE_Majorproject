@@ -1,17 +1,20 @@
-version: '3'
 services:
   frontend:
     image: asrith1158/frontend-image:latest
+    restart: always
     ports:
       - "3000:3000"
     environment:
       REACT_APP_CLOUDINARY_CLOUD_NAME: dd4osfetw
       REACT_APP_BACKEND_URL: http://localhost:8080  
+    depends_on:
+      - backend
     networks:
       - app-network
 
   backend:
     image: asrith1158/backend-image:latest
+    restart: always
     ports:
       - "8080:8080"
     environment:
@@ -19,10 +22,6 @@ services:
       JWT_SECRET_KEY: jhdcjhsdvchjsdhbfasdgbvs
       FRONTEND_URL: http://localhost:3000
       PORT: 8080
-    # deploy:
-    #   resources:
-    #     limits:
-    #       memory: 512M
     networks:
       - app-network
 
