@@ -9,7 +9,7 @@ async function registerUser(request,response){
 
         if(checkEmail){
             return response.status(400).json({
-                message : "Already user exits",
+                message : "User already exists",
                 error : true,
             })
         }

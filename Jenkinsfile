@@ -49,10 +49,10 @@ pipeline {
                 }
             }
         }
-        stage('Ansible playbook') {
+        stage('Docker compose') {
             steps {
                 script {
-                    sh 'ansible-playbook -i inventory-k8 playbook-k8.yml'
+                    sh 'ansible-playbook -i inventory playbook.yml'
                 }
             }
         }
