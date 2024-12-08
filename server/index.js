@@ -7,8 +7,11 @@ const cookiesParser = require('cookie-parser')
 const { app, server } = require('./socket/index')
 
 // const app = express()
+const frontendUrl = window.location.hostname === 'localhost' ? 
+  'http://localhost:3000' : 
+  'http://192.168.49.2:30000';
 app.use(cors({
-    origin : process.env.FRONTEND_URL,
+    origin : frontendUrl,
     credentials : true
 }))
 app.use(express.json())

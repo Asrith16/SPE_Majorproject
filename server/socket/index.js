@@ -8,11 +8,15 @@ const getConversation = require('../helpers/getConversation')
 
 const app = express()
 
+const frontendUrl = window.location.hostname === 'localhost' ? 
+  'http://localhost:3000' : 
+  'http://192.168.49.2:30000';
+
 /***socket connection */
 const server = http.createServer(app)
 const io = new Server(server,{
     cors : {
-        origin : process.env.FRONTEND_URL,
+        origin : frontendUrl,
         credentials : true
     }
 })
