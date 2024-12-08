@@ -15,7 +15,11 @@ const frontendUrl = (typeof window !== 'undefined' && window.location.hostname =
 //     origin : frontendUrl,
 //     credentials : true
 // }))
-app.use(cors()); // This allows all origins
+// app.use(cors()); // This allows all origins
+const corsOptions = {
+    origin: 'http://192.168.49.2:30000', // Replace with your frontend URL
+    credentials: true, // Allow cookies and credentials
+};
 
 app.use(express.json())
 app.use(cookiesParser())
