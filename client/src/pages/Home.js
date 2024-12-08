@@ -120,11 +120,17 @@ const Home = () => {
         withCredentials: true
       })
 
-      dispatch(setUser(response.data.data))
+      if (response.data?.data) {
+        // If the user is logged in, update the Redux store
+        dispatch(setUser(response.data.data))
 
-      if (response.data.data.logout) {
-        dispatch(logout())
-        navigate("/email")
+        // If the user is marked for logout, dispatch the logout action
+        if (response.data.data.logout) {
+          dispatch(logout())
+          navigate("/email")
+        }
+      } else {
+        console.log("No user data found")
       }
 
       console.log("current user Details", response)
