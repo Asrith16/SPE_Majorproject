@@ -10,10 +10,12 @@ const { app, server } = require('./socket/index')
 const frontendUrl = window.location.hostname === 'localhost' ? 
   'http://localhost:3000' : 
   'http://192.168.49.2:30000';
-app.use(cors({
-    origin : frontendUrl,
-    credentials : true
-}))
+// app.use(cors({
+//     origin : frontendUrl,
+//     credentials : true
+// }))
+app.use(cors()); // This allows all origins
+
 app.use(express.json())
 app.use(cookiesParser())
 
