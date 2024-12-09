@@ -15,12 +15,18 @@ const Home = () => {
 
   console.log('user',user)
   const fetchUserDetails = async()=>{
+    const l=localStorage.getItem('token')
     try {
         const URL = `${backendUrl}/api/user-details`
         const response = await axios({
-          url : URL,
-          withCredentials : true
-        })
+          url: URL,
+          method: 'GET',  // Specify the HTTP method if needed (GET, POST, etc.)
+          headers: {
+            'Authorization': `Bearer ${l}`, // Add the Authorization header
+          },
+          withCredentials: true,  // If needed, include cookies
+        });
+
 
         dispatch(setUser(response.data.data))
 
